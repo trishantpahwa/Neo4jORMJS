@@ -27,18 +27,18 @@ var n1 = new Node(['Student'], {'Firstname': 'Trishant', 'Lastname': 'Pahwa'});
 // console.log(query5);
 // const query6 = n1.delete();
 // console.log(query6);
-const query7 = n1.addConstraint('UNIQUE', 'Lastname');
-console.log(query7);
-const query8 = n1.addConstraint('PROPERTY_EXISTANCE', 'Firstname');
-console.log(query8)
+// const query7 = n1.addConstraint('UNIQUE', 'Lastname');
+// console.log(query7);
+// const query8 = n1.addConstraint('PROPERTY_EXISTANCE', 'Firstname');
+// console.log(query8)
 
 
 
-// var n2 = new Node(['Student'], {'Firstname': 'Trishant', 'Lastname': 'Pahwa'});
-// executeQuery(n1.create(), function(result1) {
-//     executeQuery(n2.create(), function(result2) {
-//         executeQuery(r1.create(), function(result) {
-//             console.log(result);
-//         });
-//     });
-// });
+var n2 = new Node(['Student'], {'Firstname': 'Trishant', 'Lastname': 'Pahwa'});
+executeQuery(n1.create(), function(result1) {
+    executeQuery(n2.create(), function(result2) {
+        executeQuery(r1.create(), function(result) {
+            console.log(result);
+        });
+    });
+});

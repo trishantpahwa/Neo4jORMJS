@@ -8,7 +8,7 @@ class Relationship {
     }
 
     create() {
-
+        console.log('create realtionship');
     }
 
 }

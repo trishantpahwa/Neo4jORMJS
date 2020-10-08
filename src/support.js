@@ -33,7 +33,36 @@ function addConstraint(constraint, labels, property) {
     return query;
 }
 
+function dropConstraint(constraint, labels, property) {
+    if(constraint !== 'UNIQUE' || constraint !== 'PROPERTY_EXISTANCE') {
+        throw 'constraint not found.';
+    }
+    if(!Array.isArray(labels)) {
+        throw 'labels should be an array.'
+    }
+    if(typeof myVar !== 'string' || !(myVar instanceof String)) {
+        throw 'properties should be a string.'
+    }
+
+    const alias = makeAlias();
+    var query = 'DROP CONSTRAINT ON (' + alias;
+    labels.forEach(function(label) {
+        query += ':' + label;
+    });
+    query += ') ASSERT ';
+    switch(constraint) {
+        case 'UNIQUE':
+            query += alias + '.' + property + ' IS UNIQUE;';
+            break;
+        case 'PROPERTY_EXISTANCE':
+            query += 'exists( ' + alias + '.' + property + ');';
+            break;
+    }
+    return query;
+}
+
 module.exports = {
     makeAlias,
-    addConstraint
+    addConstraint,
+    dropConstraint
 };
