@@ -3,6 +3,14 @@ const { makeAlias } = require('./support');
 class Node {
 
     constructor(labels, properties) {
+
+        if(!Array.isArray(labels)) {
+            throw 'labels should be of type Array.';
+        }
+        if(typeof properties !== 'object' && properties === null) {
+            throw 'properties should be of type Object';
+        }
+
         this.labels = labels;
         this.properties = properties;
     }
@@ -73,6 +81,9 @@ class Node {
     }
 
     addLabel(labels) {
+        if(!Array.isArray(labels)) {
+            throw 'labels should be of type array';
+        }
         const match = this.match();
         var query = match.query + ' ';
         labels.forEach(function(label) {
@@ -82,6 +93,11 @@ class Node {
     }
 
     addProperties(properties) {
+
+        if(typeof properties !== 'object' && properties === null) {
+            throw 'properties should be af type object.'
+        }
+
         const match = this.match();
         var query = match.query + ' ';
         for(var property in properties) {
@@ -95,6 +111,7 @@ class Node {
         const match = this.match();
         return match.query + ' DELETE ' + match.alias + ';';
     }
+
 }
 
 module.exports = Node;
