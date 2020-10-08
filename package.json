@@ -1,0 +1,28 @@
+{
+  "name": "neo4jormjs",
+  "version": "1.0.0",
+  "description": "A Neo4j ORM in JavaScript",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trishantpahwa/Neo4jORMJS.git"
+  },
+  "keywords": [
+    "Neo4j",
+    "Graphs",
+    "Database"
+  ],
+  "author": "Trishant Pahwa",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/trishantpahwa/Neo4jORMJS/issues"
+  },
+  "homepage": "https://github.com/trishantpahwa/Neo4jORMJS#readme",
+  "dependencies": {
+    "neo4j-driver": "^4.1.2",
+    "uuid": "^8.3.1"
+  }
+}
