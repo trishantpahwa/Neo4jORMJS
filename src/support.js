@@ -12,7 +12,7 @@ function addConstraint(constraint, labels, property) {
     if(!Array.isArray(labels)) {
         throw 'labels should be an array.'
     }
-    if(typeof myVar !== 'string' || !(myVar instanceof String)) {
+    if(typeof myVar !== 'string') {
         throw 'properties should be a string.'
     }
 
@@ -40,7 +40,7 @@ function dropConstraint(constraint, labels, property) {
     if(!Array.isArray(labels)) {
         throw 'labels should be an array.'
     }
-    if(typeof myVar !== 'string' || !(myVar instanceof String)) {
+    if(typeof myVar !== 'string') {
         throw 'properties should be a string.'
     }
 

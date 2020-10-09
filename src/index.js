@@ -35,15 +35,16 @@ var n1 = new Node(['Student'], {'Firstname': 'Trishant', 'Lastname': 'Pahwa'});
 
 
 var n2 = new Node(['Student'], {'Firstname': 'Tavish', 'Lastname': 'Pahwa'});
-var r1 = new Relationship(n1, n2, ['Friends'], {'Since': '1999'}, '>');
+var r1 = new Relationship(n1, n2, 'Friends', {'Since': '2000'}, '>');
 executeQuery(n1.create(), function(result1) {
     executeQuery(n2.create(), function(result2) {
-        // executeQuery(r1.create(), function(result) {
-        //     result.records.forEach(function(record) {
-        //         console.log(record._fields);
-        //     })
-        // });
-        // r1.create();
-        console.log(r1.match());
+        executeQuery(r1.create(), function(result) {
+            executeQuery(r1.delete(), function(result) {
+                console.log(result);
+            });
+        });
     });
 });
+// executeQuery(r1.update({'Since': '2006'}), function(result) {
+//     console.log(result);
+// });
